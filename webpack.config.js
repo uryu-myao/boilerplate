@@ -26,7 +26,7 @@ module.exports = {
 
   resolve: {
     // Find the directory automatically
-    modules: [dirApp, dirStyles, dirShared, dirNode],
+    modules: ['node_modules', dirApp, dirStyles, dirShared, dirNode],
     fallback: { events: false },
   },
 

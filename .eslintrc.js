@@ -9,22 +9,17 @@ module.exports = {
     es6: true,
     browser: true,
   },
-  extends: ["standard", "plugin:prettier/recommended"],
+  extends: ['standard', 'plugin:prettier/recommended'],
   globals: {
-    IS_DEVELOPMENT: "readonly",
+    IS_DEVELOPMENT: 'readonly',
   },
   parserOptions: {
     ecmasVersion: 2022,
   },
   rules: {
-    "no-console": [
-      "error",
-      {
-        allow: ["error", "warn"],
-      },
-    ],
-    "no-multi-spaces": [
-      "error",
+    'no-console': 'off',
+    'no-multi-spaces': [
+      'error',
       {
         exceptions: {
           ImportDeclaration: true,
@@ -33,12 +28,12 @@ module.exports = {
         },
       },
     ],
-    "prettier/prettier": [
-      "error",
+    'prettier/prettier': [
+      'error',
       {
         singleQuote: true,
         semi: false,
       },
     ],
   },
-};
+}
