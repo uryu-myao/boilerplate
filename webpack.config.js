@@ -1,23 +1,25 @@
-const path = require('path');
-const webpack = require('webpack');
+/**
+ * Webpack configuration
+ * @see https://webpack.js.org
+ */
 
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const path = require("path");
+const webpack = require("webpack");
+
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
 // Check frome node.js which node env is running
-const IS_DEVELOPMENT = process.env.NODE_ENV === 'dev';
+const IS_DEVELOPMENT = process.env.NODE_ENV === "dev";
 
-const dirApp = path.join(__dirname, 'app');
-const dirStyles = path.join(__dirname, 'styles');
-const dirShared = path.join(__dirname, 'shared');
-const dirNode = 'node_module';
+const dirApp = path.join(__dirname, "app");
+const dirStyles = path.join(__dirname, "styles");
+const dirShared = path.join(__dirname, "shared");
+const dirNode = "node_module";
 
 module.exports = {
-  entry: [
-    path.join(dirApp, 'index.js'),
-    path.join(dirStyles, 'index.scss'),
-  ],
+  entry: [path.join(dirApp, "index.js"), path.join(dirStyles, "index.scss")],
 
   resolve: {
     // Find the directory automatically
@@ -31,12 +33,12 @@ module.exports = {
 
     new webpack.ProvidePlugin({}),
     new CopyWebpackPlugin({
-      patterns: [{ from: './shared', to: '' }],
+      patterns: [{ from: "./shared", to: "" }],
     }),
 
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: "[name].css",
+      chunkFilename: "[id].css",
     }),
 
     new ImageMinimizerPlugin({
@@ -44,9 +46,9 @@ module.exports = {
         implementation: ImageMinimizerPlugin.imageminMinify,
         options: {
           plugins: [
-            ['gifsicle', { interlaced: true }],
-            ['jpegtran', { progressive: true }],
-            ['optipng', { optimizationLevel: 5 }],
+            ["gifsicle", { interlaced: true }],
+            ["jpegtran", { progressive: true }],
+            ["optipng", { optimizationLevel: 5 }],
           ],
         },
       },
@@ -55,42 +57,67 @@ module.exports = {
 
   module: {
     rules: [
-      // regular expression
-      { test: /\.js$/, use: { loader: 'babel-loader' } },
+      // JavaScript
+      {
+        test: /\.js$/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            cacheDirectory: true,
+          },
+        },
+      },
+      // Sass
       {
         test: /\.scss$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: { publicPath: '' },
           },
-          { loader: 'css-loader' },
-          { loader: 'postcss-loader' },
-          { loader: 'sass-loader' },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
         ],
       },
+      // Assets
       {
         test: /\.(jpe?g|png|gif|svg|woff2?|fnt|webp)$/,
-        loader: 'file-loader',
+        loader: "file-loader",
         options: {
-          outputPath: 'assets',
+          outputPath: "assets",
           name(file) {
-            return '[hash].[ext]';
+            return "[hash].[ext]";
           },
         },
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        type: 'asset',
+        type: "asset",
       },
+      // WebGL
       {
         test: /\.(glsl|frag|vert)$/,
-        loader: 'raw-loader',
+        loader: "raw-loader",
         exclude: /node_modules/,
       },
       {
         test: /\.(glsl|frag|vert)$/,
-        loader: 'glslify-loader',
+        loader: "glslify-loader",
         exclude: /node_modules/,
       },
     ],

@@ -1,0 +1,13 @@
+# Browserslist configuration
+
+# @see https://github.com/browserslist/browserslist
+
+# 2020.6.15 時点での最新ブラウザを設定（IE11, Edge は非 Chromium 版の最終版である v18 を含む）
+
+ie 11
+edge >= 18
+chrome >= 83
+firefox >= 77
+safari >= 13
+ios_saf >= 13
+and_chr >= 83
