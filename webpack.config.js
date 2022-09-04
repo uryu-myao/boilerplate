@@ -39,7 +39,7 @@ module.exports = {
 
     new webpack.ProvidePlugin({}),
     new CopyWebpackPlugin({
-      patterns: [{ from: './shared', to: '' }],
+      patterns: [{ from: './shared', to: '', noErrorOnMissing: true }],
     }),
 
     new MiniCssExtractPlugin({
