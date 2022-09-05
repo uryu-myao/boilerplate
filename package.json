@@ -9,9 +9,11 @@
   "author": "uryu myao",
   "license": "ISC",
   "scripts": {
-    "build": "webpack --progress --config webpack.config.build.js",
-    "development": "webpack server --open --progress --config webpack.config.development.js",
-    "start": "npm run development"
+    "backend:build": "node app.js",
+    "backend:dev": "nodemon app.js",
+    "frontend:build": "webpack --progress --config webpack.config.build.js",
+    "frontend:dev": "webpack server --open --progress --config webpack.config.development.js",
+    "start": "concurrently --kill-others \"npm run backend:dev\" \"npm run frontend:dev\""
   },
   "devDependencies": {
     "babel-loader": "^8.2.5",
@@ -36,6 +38,7 @@
     "imagemin-optipng": "^8.0.0",
     "mini-css-extract-plugin": "^2.6.1",
     "postcss-loader": "^7.0.1",
+    "pug": "^3.0.2",
     "raw-loader": "^4.0.2",
     "sass": "^1.54.8",
     "sass-loader": "^13.0.2",
@@ -44,5 +47,10 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.10.1",
     "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "concurrently": "^7.3.0",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
   }
 }
