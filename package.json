@@ -16,6 +16,7 @@
     "start": "concurrently --kill-others \"npm run backend:dev\" \"npm run frontend:dev\""
   },
   "devDependencies": {
+    "@prettier/plugin-pug": "^2.2.0",
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
@@ -38,6 +39,7 @@
     "imagemin-optipng": "^8.0.0",
     "mini-css-extract-plugin": "^2.6.1",
     "postcss-loader": "^7.0.1",
+    "prettier": "^2.7.1",
     "pug": "^3.0.2",
     "raw-loader": "^4.0.2",
     "sass": "^1.54.8",

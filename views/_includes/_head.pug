@@ -2,7 +2,33 @@ block head
 meta(charset="UTF-8")
 meta(name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0")
 meta(http-equiv="X-UA-Compatible" content="IE=edge")
-title="hahah title"
-meta(name="description" content="hahah desc")
-
-link(rel="shortcut icon" href=require('assets/images/icons/favicon.ico').default)
+//- SEO
+title= title
+meta(name="description" content=description)
+//- OGP
+meta(property="fb:app_id" content=" ")
+meta(property="og:site_name" content=" ")
+eta(property="og:type" content=`${pageId === 'top' ? 'website' : 'article'}`)
+meta(property="og:title" content=title)
+meta(property="og:description" content=description)
+meta(property="og:url" content=canonical)
+meta(property="og:image" content=`http://www.○○○.com/ogp`)
+meta(name="twitter:title" content=title)
+meta(name="twitter:description" content=description)
+meta(name="twitter:image:src" content=`http://www.○○○.com/ogp`)
+meta(name="twitter:card" content="summary_large_image")
+//- INFO
+link(rel="canonical" href=canonical)
+link(rel="manifest" href="/manifest.json")
+//- ICONS
+link(rel="shortcut icon" href='assets/favicon.ico')
+//- CSS
+link(rel='stylesheet', href="css/style.css")
+//- Google Analytics
+script(src="https://www.googletagmanager.com/gtag/js?id= " async)
+script.
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', ' ');
+//- JavaScript

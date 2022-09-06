@@ -1,0 +1,100 @@
+// Reset for font-size: 62.5%
+// ==========================================================================
+/**
+ * make 1em = 10px
+ */
+
+html,
+body,
+h1, h2, h3, h4, h5, h6
+{
+  font-size: 62.5%;
+}
+
+
+
+// Alert img missing alt
+// ==========================================================================
+
+img[alt=""],
+img:not([alt])
+{
+  border: 1px dashed #c00;
+}
+
+
+
+// Change text selection styles
+// ==========================================================================
+
+// ::-moz-selection
+// {
+//   background-color: transparent;
+//   color: #303595;
+// }
+// ::selection
+// {
+//   background-color: transparent;
+//   color: #303595;
+// }
+body {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+
+
+
+// Chagne auto-complete color in Chrome
+// ==========================================================================
+
+input:-webkit-autofill
+{
+  box-shadow: 0 0 0 1000px skyblue inset;
+}
+
+
+
+// Change Placeholder Style
+// ==========================================================================
+
+input::placeholder               { color: skyblue; transition: all .1s ease-in-out;}
+input::-webkit-input-placeholder { color: skyblue; transition: all .1s ease-in-out;}
+input::-moz-placeholder          { color: skyblue; transition: all .1s ease-in-out;}
+input::-ms-placeholder           { color: skyblue; transition: all .1s ease-in-out;}
+
+textarea::placeholder               { color: skyblue; transition: all .1s ease-in-out;}
+textarea::-webkit-input-placeholder { color: skyblue; transition: all .1s ease-in-out;}
+textarea::-moz-placeholder          { color: skyblue; transition: all .1s ease-in-out;}
+textarea::-ms-placeholder           { color: skyblue; transition: all .1s ease-in-out;}
+
+input:focus::-webkit-input-placeholder { color:transparent;}
+input:focus::-ms-placeholder           { color:transparent;}
+input:focus::-moz-placeholder          { color:transparent;}
+
+textarea:focus::-webkit-input-placeholder { color:transparent;}
+textarea:focus::-ms-placeholder           { color:transparent;}
+textarea:focus::-moz-placeholder          { color:transparent;}
+
+
+
+// No dragging in textarea
+// ==========================================================================
+
+textarea { resize: none;}
+
+
+
+//  Better looking hr
+// ==========================================================================
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
