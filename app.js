@@ -23,14 +23,6 @@ app.get('/contact', (req, res) => {
   res.render('contact')
 })
 
-app.get('/collections', (req, res) => {
-  res.render('collections')
-})
-
-app.get('/product/:uid', (req, res) => {
-  res.render('product')
-})
-
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
